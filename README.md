@@ -39,9 +39,9 @@
 - Michael Salvati
 
 ## Team 4
-- Chase Caine
-- Jonathan Gallo
-- David Ahn
+- Steve Benedict
+- Sarah Han
+- Kyle Pamintuan
 
 ## Team 5
 - Gerald Blackmon
