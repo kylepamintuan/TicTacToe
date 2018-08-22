@@ -1,0 +1,71 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    font-size: 0;
+    font-family: sans-serif;
+}
+.player1_container {
+    width: 14%;
+    height: 100%;
+    font-size: 20px;
+    background-color: #4d79ff;
+    display: inline-block;
+}
+.player1_display {
+    width: 100%;
+    height: 70%;
+    background-color: #66cc00;
+}
+.player1_stats {
+    width: 100%;
+    height: 30%;
+    background-color: #00b3b3;
+}
+.game_area {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    font-size: 30px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+}
+.gameName {
+    width: 100%;
+    height: 10%;
+    font-size: 40px;
+    text-align: center;
+    background-color: mediumpurple;
+}
+.gameBoard {
+    width: 100%;
+    height: 90%;
+    background-color: lightcoral;
+}
+.player2_container {
+    width: 14%;
+    height: 100%;
+    font-size: 20px;
+    background-color: #4d79ff;
+    display: inline-block;
+}
+.player2_display {
+    width: 100%;
+    height: 70%;
+    background-color: #66cc00;
+}
+.player2_stats {
+    width: 100%;
+    height: 30%;
+    background-color: #00b3b3;
+}
+.square {
+    background-color: cyan;
+    float: left;
+    border: 1px solid black;
+}
+
+.clicked{
+    opacity: 0.5;
+}
