@@ -86,8 +86,11 @@ function gameOver( str ){
         playerOne.catsGames++;
         playerTwo.catsGames++;
     }
+    // update any stats that are displayed on the game over modal
 
-    //$('#gameOverModal').modal('show');
+    // $('#gameOverModal').modal('show');
+
+    // $('#gameOverModal > #resetButton').click(resetGame);
 }
 
 function showModal(){
@@ -96,4 +99,10 @@ function showModal(){
 
 function hideModal(){
     $("#tttModal").modal('hide');
+}
+
+function resetGame(){
+    $('.gameBoard').empty();
+    makeGameBoard(3);
+    // $("#gameOverModal").modal('hide');
 }
