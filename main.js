@@ -20,15 +20,12 @@ $(document).ready(initializeApp);
 
 function initializeApp(){
     console.log('Initializing App...');
+
     makeGameBoard(3);
 }
 
 function bindEventHandlers(){
 
-}
-
-function fillGameBoard(){
-    var game_board = $('.game_board');
 }
 
 function makeGameBoard( size ){
@@ -45,7 +42,19 @@ function makeGameBoard( size ){
             if (colIndex === 0){
                 square.css('clear', 'left');
             }
+            square.click(squareClickEventHandler);
             $('.gameBoard').append( square );
         }
     }
+}
+
+function squareClickEventHandler()
+{
+    var current_square = $(event.currentTarget);
+
+    console.log('square clicked: [' + current_square.attr('row') + '][' + current_square.attr('col') + ']');
+
+    current_square.toggleClass('clicked');
+
+    // current_square.text(currentPlayer.symbol);
 }
