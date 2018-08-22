@@ -4,7 +4,7 @@ var playerOne = {
     wins: 0,
     losses: 0,
     catsGames: 0,
-    color: red
+    color: 'red'
 }
 var playerTwo = {
     name: 'thing 2',
@@ -12,7 +12,7 @@ var playerTwo = {
     wins: 0,
     losses: 0,
     catsGames: 0,
-    color: blue
+    color: 'blue'
 }
 var currentPlayer = playerOne;
 
@@ -62,8 +62,8 @@ function squareClickEventHandler()
     console.log('square clicked: [' + current_square.attr('row') + '][' + current_square.attr('col') + ']');
 
     current_square.toggleClass('clicked');
-
-    // current_square.text(currentPlayer.symbol);
+    current_square.text(currentPlayer.symbol);
+    current_square.off('click');
 }
 
 function changeCurrentPlayer(){
