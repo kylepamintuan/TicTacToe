@@ -1,16 +1,31 @@
+var playerOne = {
+    name: 'thing 1',
+    symbol: 'X',
+    wins: 0,
+    losses: 0,
+    catsGames: 0,
+    color: red
+}
+var playerTwo = {
+    name: 'thing 2',
+    symbol: 'O',
+    wins: 0,
+    losses: 0,
+    catsGames: 0,
+    color: blue
+}
+var currentPlayer = playerOne;
+
 $(document).ready(initializeApp);
 
 function initializeApp(){
     console.log('Initializing App...');
+
     makeGameBoard(3);
 }
 
 function bindEventHandlers(){
 
-}
-
-function fillGameBoard(){
-    var game_board = $('.game_board');
 }
 
 function makeGameBoard( size ){
@@ -27,6 +42,7 @@ function makeGameBoard( size ){
             if (colIndex === 0){
                 square.css('clear', 'left');
             }
+            square.click(squareClickEventHandler);
             $('.gameBoard').append( square );
         }
     }
@@ -37,4 +53,15 @@ function checkSquareForMove( square ){
         return true;
     }
     return false;
+}
+
+function squareClickEventHandler()
+{
+    var current_square = $(event.currentTarget);
+
+    console.log('square clicked: [' + current_square.attr('row') + '][' + current_square.attr('col') + ']');
+
+    current_square.toggleClass('clicked');
+
+    // current_square.text(currentPlayer.symbol);
 }
