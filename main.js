@@ -48,6 +48,13 @@ function makeGameBoard( size ){
     }
 }
 
+function checkSquareForMove( square ){
+    if (square.text() !== ''){
+        return true;
+    }
+    return false;
+}
+
 function squareClickEventHandler()
 {
     var current_square = $(event.currentTarget);
