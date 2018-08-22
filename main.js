@@ -1,3 +1,21 @@
+var playerOne = {
+    name: 'thing 1',
+    symbol: 'X',
+    wins: 0,
+    losses: 0,
+    catsGames: 0,
+    color: red
+}
+var playerTwo = {
+    name: 'thing 2',
+    symbol: 'O',
+    wins: 0,
+    losses: 0,
+    catsGames: 0,
+    color: blue
+}
+var currentPlayer = playerOne;
+
 $(document).ready(initializeApp);
 
 function initializeApp(){
