@@ -65,3 +65,11 @@ function squareClickEventHandler()
     current_square.text(currentPlayer.symbol);
     current_square.off('click');
 }
+
+function changeCurrentPlayer(){
+    if(currentPlayer === playerOne){
+        currentPlayer = playerTwo;
+    }else{
+        currentPlayer = playerOne;   
+    }
+}
