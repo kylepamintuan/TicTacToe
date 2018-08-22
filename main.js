@@ -1,10 +1,12 @@
+$(document).ready(initializeApp);
+
 var playerOne = {
     name: 'thing 1',
     symbol: 'X',
     wins: 0,
     losses: 0,
     catsGames: 0,
-    color: red
+    color: 'red'
 }
 var playerTwo = {
     name: 'thing 2',
@@ -12,11 +14,9 @@ var playerTwo = {
     wins: 0,
     losses: 0,
     catsGames: 0,
-    color: blue
+    color: 'blue'
 }
 var currentPlayer = playerOne;
-
-$(document).ready(initializeApp);
 
 function initializeApp(){
     console.log('Initializing App...');
@@ -55,15 +55,15 @@ function checkSquareForMove( square ){
     return false;
 }
 
-function squareClickEventHandler()
-{
+function squareClickEventHandler(){
     var current_square = $(event.currentTarget);
 
     console.log('square clicked: [' + current_square.attr('row') + '][' + current_square.attr('col') + ']');
 
     current_square.toggleClass('clicked');
-
-    // current_square.text(currentPlayer.symbol);
+    current_square.text(currentPlayer.symbol);
+    current_square.off('click');
+    changeCurrentPlayer();
 }
 
 function changeCurrentPlayer(){
@@ -72,4 +72,37 @@ function changeCurrentPlayer(){
     }else{
         currentPlayer = playerOne;   
     }
+}
+
+function gameOver( str ){
+    if( str === playerOne.name || str === playerTwo.name)
+    {
+        currentPlayer.wins++;
+        changeCurrentPlayer();
+        currentPlayer.losses++;
+    }
+    else if( str === 'cats' )
+    {
+        playerOne.catsGames++;
+        playerTwo.catsGames++;
+    }
+    // update any stats that are displayed on the game over modal
+
+    // $('#gameOverModal').modal('show');
+
+    // $('#gameOverModal > #resetButton').click(resetGame);
+}
+
+function showModal(){
+    $("#tttModal").modal('show');
+}
+
+function hideModal(){
+    $("#tttModal").modal('hide');
+}
+
+function resetGame(){
+    $('.gameBoard').empty();
+    makeGameBoard(3);
+    // $("#gameOverModal").modal('hide');
 }
