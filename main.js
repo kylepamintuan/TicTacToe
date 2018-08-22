@@ -55,8 +55,7 @@ function checkSquareForMove( square ){
     return false;
 }
 
-function squareClickEventHandler()
-{
+function squareClickEventHandler(){
     var current_square = $(event.currentTarget);
 
     console.log('square clicked: [' + current_square.attr('row') + '][' + current_square.attr('col') + ']');
@@ -64,6 +63,7 @@ function squareClickEventHandler()
     current_square.toggleClass('clicked');
     current_square.text(currentPlayer.symbol);
     current_square.off('click');
+    changeCurrentPlayer();
 }
 
 function changeCurrentPlayer(){
