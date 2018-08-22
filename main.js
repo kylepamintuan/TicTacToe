@@ -1,3 +1,20 @@
+$(document).ready(initializeApp);
+
+function initializeApp()
+{
+    console.log('Initializing App...');
+}
+
+function bindEventHandlers()
+{
+
+}
+
+function fillGameBoard()
+{
+    var game_board = $('.game_board');
+}
+
 function makeGameBoard( size ){
     var squareSize = 100 / size;
     for (var rowIndex=0; rowIndex < size; rowIndex++){
