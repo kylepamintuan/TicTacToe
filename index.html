@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="description" content="tic tac toe game, c718 hackathon1, team4">
+    <meta name="author" content="kyle, sarah, steve">
     <title>7.18 Hackathon 1 - Tic Tac Toe (Team 4)</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script
   	src="https://code.jquery.com/jquery-3.3.1.js"
   	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   	crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
   </head>
   <body>
@@ -22,6 +26,25 @@
     <div class="player2_container">
       <div class="player2_display">Player2</div>
       <div class="player2_stats">W/L/C</div>
+    </div>
+    
+    <!-- html for modal -->  
+    <div class="modal fade" id="tttModal" role="dialog">
+      <div class="modal-dialog">
+      <!-- modal content goes here -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

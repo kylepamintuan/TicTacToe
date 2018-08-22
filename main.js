@@ -73,3 +73,11 @@ function changeCurrentPlayer(){
         currentPlayer = playerOne;   
     }
 }
+
+function showModal(){
+    $("#tttModal").modal('show');
+}
+
+function hideModal(){
+    $("#tttModal").modal('hide');
+}
