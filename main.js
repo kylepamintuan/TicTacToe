@@ -89,3 +89,11 @@ function gameOver( str ){
 
     //$('#gameOverModal').modal('show');
 }
+
+function showModal(){
+    $("#tttModal").modal('show');
+}
+
+function hideModal(){
+    $("#tttModal").modal('hide');
+}
