@@ -6,7 +6,7 @@ body {
     font-family: sans-serif;
 }
 .player1_container {
-    width: 14%;
+    width: 15%;
     height: 100%;
     font-size: 20px;
     background-color: #4d79ff;
@@ -31,7 +31,7 @@ body {
     display: inline-block;
     vertical-align: top;
 }
-.gameName {
+.gameTop {
     width: 100%;
     height: 10%;
     font-size: 40px;
@@ -42,9 +42,10 @@ body {
     width: 100%;
     height: 90%;
     background-color: lightcoral;
+    vertical-align: center;
 }
 .player2_container {
-    width: 14%;
+    width: 15%;
     height: 100%;
     font-size: 20px;
     background-color: #4d79ff;
