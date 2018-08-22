@@ -31,3 +31,10 @@ function makeGameBoard( size ){
         }
     }
 }
+
+function checkSquareForMove( square ){
+    if (square.text() !== ''){
+        return true;
+    }
+    return false;
+}
