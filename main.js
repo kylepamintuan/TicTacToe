@@ -1,3 +1,5 @@
+$(document).ready(initializeApp);
+
 var playerOne = {
     name: 'thing 1',
     symbol: 'X',
@@ -15,8 +17,6 @@ var playerTwo = {
     color: 'blue'
 }
 var currentPlayer = playerOne;
-
-$(document).ready(initializeApp);
 
 function initializeApp(){
     console.log('Initializing App...');
@@ -72,4 +72,20 @@ function changeCurrentPlayer(){
     }else{
         currentPlayer = playerOne;   
     }
+}
+
+function gameOver( str ){
+    if( str === playerOne.name || str === playerTwo.name)
+    {
+        currentPlayer.wins++;
+        changeCurrentPlayer();
+        currentPlayer.losses++;
+    }
+    else if( str === 'cats' )
+    {
+        playerOne.catsGames++;
+        playerTwo.catsGames++;
+    }
+
+    //$('#gameOverModal').modal('show');
 }
