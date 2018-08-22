@@ -1,30 +1,28 @@
 $(document).ready(initializeApp);
 
-function initializeApp()
-{
+function initializeApp(){
     console.log('Initializing App...');
+    makeGameBoard(3);
 }
 
-function bindEventHandlers()
-{
+function bindEventHandlers(){
 
 }
 
-function fillGameBoard()
-{
+function fillGameBoard(){
     var game_board = $('.game_board');
 }
 
 function makeGameBoard( size ){
-    var squareSize = 100 / size;
+    var squareSize = Math.floor(100 / size);
     for (var rowIndex=0; rowIndex < size; rowIndex++){
         for (var colIndex=0; colIndex < size; colIndex++){
             var square = $('<div>', {
             'class': 'square',
             row: rowIndex,  // custom attribute for row number
             col: colIndex,  // custom attribute for col number
-            width: squareSize + 'vmin',
-            height: squareSize + 'vmin'
+            width: squareSize + '%',
+            height: squareSize + '%'
             });
             if (colIndex === 0){
                 square.css('clear', 'left');
