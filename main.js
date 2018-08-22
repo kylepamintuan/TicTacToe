@@ -62,6 +62,6 @@ function squareClickEventHandler()
     console.log('square clicked: [' + current_square.attr('row') + '][' + current_square.attr('col') + ']');
 
     current_square.toggleClass('clicked');
-
     current_square.text(currentPlayer.symbol);
+    current_square.off('click');
 }
