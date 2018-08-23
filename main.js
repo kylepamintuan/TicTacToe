@@ -5,7 +5,6 @@ var playerOne = {
     symbol: 'X',
     wins: 0,
     losses: 0,
-    catsGames: 0,
     color: 'red'
 };
 
@@ -14,7 +13,6 @@ var playerTwo = {
     symbol: 'O',
     wins: 0,
     losses: 0,
-    catsGames: 0,
     color: 'blue'
 };
 
@@ -23,6 +21,7 @@ var gameSize = 3;
 var moves = 0;
 var resetButton = $('<button>').text('RESET');
 var winner;
+var isGameOver = false;
 
 function initializeApp(){
     console.log('Initializing App...');
@@ -32,6 +31,13 @@ function initializeApp(){
     $(window).resize(function(){
         setTextCentering();
     });
+
+    // Make sure both classes are clear of otherPlayer class
+    $('.player1_container').removeClass('otherPlayer');
+    $('.player2_container').removeClass('otherPlayer');
+
+    // Player 1 starts
+    $('.player2_container').addClass('otherPlayer');
 }
 
 function makeGameBoard( size ){
@@ -65,6 +71,9 @@ function squareClickEventHandler(){
     moves++;
     if(moves >= gameSize*2-1){
         checkGameWin(current_square);
+
+        if(isGameOver)
+            return;
     }
     current_square.off('click');
     changeCurrentPlayer();
@@ -84,15 +93,16 @@ function changeCurrentPlayer(){
 }
 
 function gameOver( str ){
+    console.log(str);
+    isGameOver = true;
+
     if( str === playerOne.name){
         $('.player1_container .wins').text(++playerOne.wins);
         $('.player2_container .losses').text(++playerTwo.losses);
-    }else if (str === playerTwo.name){
+    }
+    else if (str === playerTwo.name){
         $('.player2_container .wins').text(++playerTwo.wins);
         $('.player1_container .losses').text(++playerOne.losses);
-    }else{
-        $('.player1_container .catsGames').text(++playerOne.catsGames);
-        $('.player2_container .catsGames').text(++playerTwo.catsGames);
     }
 }
 
@@ -108,28 +118,43 @@ function checkGameWin( lastSquareClicked ){
     var diag1_matches = checkDiag1(row,col,symbol);
     var diag2_matches = checkDiag2(row,col,symbol);
 
-    if(row_matches === winning_matches){
+    if(row_matches === winning_matches)
+    {
         rowNum = parseInt(row);
         $('[row='+ rowNum + ']').addClass('winner');
         winner = currentPlayer.name;
         $('.square').off('click');
-    } else if(col_matches === winning_matches){
+
+        gameOver(winner);
+    } 
+    else if(col_matches === winning_matches)
+    {
         colNum = parseInt(col);
         $('[col='+ colNum + ']').addClass('winner');
         winner = currentPlayer.name;
         $('.square').off('click');
-    } else if(diag1_matches === winning_matches){
+
+        gameOver(winner);
+    } 
+    else if(diag1_matches === winning_matches)
+    {
         for (var rowColIndex=0; rowColIndex<gameSize; rowColIndex++){
             $('[row='+ rowColIndex + '][col=' + rowColIndex + ']').addClass('winner');
         }
         winner = currentPlayer.name;
         $('.square').off('click');
-    } else if(diag2_matches === winning_matches){
+
+        gameOver(winner);        
+    } 
+    else if(diag2_matches === winning_matches)
+    {
         for (var colIndex=0, rowIndex = gameSize - 1; colIndex<gameSize, rowIndex >= 0; colIndex++, rowIndex--){
             $('[row=' + rowIndex + '][col=' + colIndex + ']').addClass('winner');
         }
         winner = currentPlayer.name;
         $('.square').off('click');
+
+        gameOver(winner);
     }
 }
 
@@ -276,14 +301,12 @@ function checkDiag_SW( x, y, symbol ){
     }
     return count;
 }
-
 function resetGame (){
     $('.gameBoard').empty();
     initializeApp();
     moves = 0;
     $('square').on('click', squareClickEventHandler);
-    $('.player1_container').removeClass('otherPlayer');
-    $('.player2_container').removeClass('otherPlayer');
+    isGameOver = false;
 }
 function setTextCentering(){
     $(".square").each(function(){
