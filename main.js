@@ -17,11 +17,12 @@ var playerTwo = {
     color: 'blue'
 }
 var currentPlayer = playerOne;
+var moves = 0;
+var gameSize = 3;
 
 function initializeApp(){
     console.log('Initializing App...');
-
-    makeGameBoard(3);
+    makeGameBoard(gameSize);
 }
 
 function bindEventHandlers(){
@@ -33,11 +34,11 @@ function makeGameBoard( size ){
     for (var rowIndex=0; rowIndex < size; rowIndex++){
         for (var colIndex=0; colIndex < size; colIndex++){
             var square = $('<div>', {
-            'class': 'square',
-            row: rowIndex,  // custom attribute for row number
-            col: colIndex,  // custom attribute for col number
-            width: squareSize + '%',
-            height: squareSize + '%'
+                'class': 'square',
+                row: rowIndex,  // custom attribute for row number
+                col: colIndex,  // custom attribute for col number
+                width: squareSize + '%',
+                height: squareSize + '%'
             });
             if (colIndex === 0){
                 square.css('clear', 'left');
@@ -62,6 +63,9 @@ function squareClickEventHandler(){
 
     current_square.toggleClass('clicked');
     current_square.text(currentPlayer.symbol);
+    moves++;
+    if(moves >= gameSize*2-1)
+        checkPlayerWin();
     current_square.off('click');
     changeCurrentPlayer();
 }
@@ -97,3 +101,7 @@ function showModal(){
 function hideModal(){
     $("#tttModal").modal('hide');
 }
+
+function checkPlayerWin () {
+
+}}
