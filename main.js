@@ -31,10 +31,6 @@ function initializeApp(){
     $('#reset').click(resetGame);
 }
 
-function bindEventHandlers(){
-
-}
-
 function makeGameBoard( size ){
     var squareSize = Math.floor(100 / size);
     for (var rowIndex=0; rowIndex < size; rowIndex++){
@@ -53,13 +49,6 @@ function makeGameBoard( size ){
             $('.gameBoard').append( square );
         }
     }
-}
-
-function checkSquareForMove( square ){
-    if (square.text() !== ''){
-        return true;
-    }
-    return false;
 }
 
 function squareClickEventHandler(){
