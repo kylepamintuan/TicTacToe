@@ -7,7 +7,7 @@ var playerOne = {
     losses: 0,
     catsGames: 0,
     color: 'red'
-}
+};
 var playerTwo = {
     name: 'thing 2',
     symbol: 'O',
@@ -15,12 +15,12 @@ var playerTwo = {
     losses: 0,
     catsGames: 0,
     color: 'blue'
-}
+};
 var currentPlayer = playerOne;
 
 function initializeApp(){
     console.log('Initializing App...');
-
+//showModal('landingPage');
     makeGameBoard(3);
 }
 
@@ -88,12 +88,15 @@ function gameOver( str ){
     }
 
     //$('#gameOverModal').modal('show');
+    showModal('gameOver');
 }
 
-function showModal(){
-    $("#tttModal").modal('show');
+function showModal( type ){
+    var modalToShow = '#' + type + 'Modal';
+    $(modalToShow).modal('show');
 }
 
-function hideModal(){
-    $("#tttModal").modal('hide');
+function hideModal( type ){
+    var modalToHide = '#' + type + 'Modal';
+    $(modalToHide).modal('hide');
 }
