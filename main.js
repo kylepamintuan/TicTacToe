@@ -29,10 +29,23 @@ function initializeApp(){
     makeGameBoard(gameSize);
     $('#reset').append(resetButton);
     $('#reset').click(resetGame);
+    $('.nameForm').hide();
+    $('.player1_container > .name').attr('contentEditable',true).click(nameClickEventHandler);
+    $('.name').blur(function(){
+        if(event.currentTarget.innerHTML === ''){
+            event.currentTarget.innerHTML = $(event.currentTarget).attr('oldName');
+        }
+    });
+    $('.player2_container > .name').attr('contentEditable',true).click(nameClickEventHandler);
     $(window).resize(function(){
         setTextCentering();
     });
     setFirstPlayerTurn();
+}
+
+function nameClickEventHandler(){
+    $(event.currentTarget).attr('oldName', $(event.currentTarget).text());
+    $(event.currentTarget).text('');
 }
 
 function setFirstPlayerTurn()

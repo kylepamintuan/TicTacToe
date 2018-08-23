@@ -118,6 +118,10 @@ body {
 }
 .name{
     font-size: 3.5rem;
+    user-select: all;
+}
+.name:focus{
+    outline: none;
 }
 .symbol {
     font-size: 11rem;
