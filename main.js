@@ -1,7 +1,7 @@
 $(document).ready(initializeApp);
 
 var playerOne = {
-    name: 'thing 1',
+    name: 'Player 1',
     symbol: 'X',
     wins: 0,
     losses: 0,
@@ -10,7 +10,7 @@ var playerOne = {
 };
 
 var playerTwo = {
-    name: 'thing 2',
+    name: 'Player 2',
     symbol: 'O',
     wins: 0,
     losses: 0,
@@ -132,21 +132,24 @@ function checkGameWin( lastSquareClicked ){
     if(row_matches === winning_matches){
         rowNum = parseInt(row);
         $('[row='+ rowNum + ']').addClass('winner');
-        // winner =
+        winner = currentPlayer.name;
         $('.square').off('click');
     } else if(col_matches === winning_matches){
         colNum = parseInt(col);
         $('[col='+ colNum + ']').addClass('winner');
+        winner = currentPlayer.name;
         $('.square').off('click');
     } else if(diag1_matches === winning_matches){
         for (var rowColIndex=0; rowColIndex<gameSize; rowColIndex++){
             $('[row='+ rowColIndex + '][col=' + rowColIndex + ']').addClass('winner');
         }
+        winner = currentPlayer.name;
         $('.square').off('click');
     } else if(diag2_matches === winning_matches){
         for (var colIndex=0, rowIndex = gameSize - 1; colIndex<gameSize, rowIndex >= 0; colIndex++, rowIndex--){
             $('[row=' + rowIndex + '][col=' + colIndex + ']').addClass('winner');
         }
+        winner = currentPlayer.name;
         $('.square').off('click');
     }
 }
