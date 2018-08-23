@@ -69,13 +69,13 @@ function squareClickEventHandler(){
 function changeCurrentPlayer(){
     if(currentPlayer === playerOne){
         currentPlayer = playerTwo;
-        $('.player1_container').removeClass('currentPlayer');
-        $('.player2_container').addClass('currentPlayer');
+        $('.player2_container').removeClass('otherPlayer');
+        $('.player1_container').addClass('otherPlayer');
 
     }else{
         currentPlayer = playerOne;
-        $('.player2_container').removeClass('currentPlayer');
-        $('.player1_container').addClass('currentPlayer');
+        $('.player1_container').removeClass('otherPlayer');
+        $('.player2_container').addClass('otherPlayer');
     }
 }
 
@@ -104,7 +104,6 @@ function checkGameWin( square ){
     var diag1_matches = checkDiag1(row,col,symbol);
     var diag2_matches = checkDiag2(row,col,symbol);
 
-    // reset moves to 0 when game restarts
     if(row_matches === winning_matches)
         console.log("row match - game over");
     else if(col_matches === winning_matches)
@@ -257,4 +256,6 @@ function resetGame (){
     $('.gameBoard').empty();
     initializeApp();
     moves = 0;
+    $('.player1_container').removeClass('otherPlayer');
+    $('.player2_container').removeClass('otherPlayer');
 }
