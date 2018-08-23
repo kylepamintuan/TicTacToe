@@ -22,6 +22,7 @@ var currentPlayer = playerOne;
 var gameSize = 3;
 var moves = 0;
 var resetButton = $('<button>').text('RESET');
+var winner;
 
 
 function initializeApp(){
@@ -131,6 +132,7 @@ function checkGameWin( lastSquareClicked ){
     if(row_matches === winning_matches){
         rowNum = parseInt(row);
         $('[row='+ rowNum + ']').addClass('winner');
+        // winner =
         $('.square').off('click');
     } else if(col_matches === winning_matches){
         colNum = parseInt(col);
@@ -150,9 +152,8 @@ function checkGameWin( lastSquareClicked ){
 }
 
 function checkRow( x, y, symbol ){
-    var matches = checkRight(x, y, symbol) + checkLeft(x, y, symbol);
-
-    return matches;
+    var rowCountSum = checkRight(x, y, symbol) + checkLeft(x, y, symbol);
+    return rowCountSum;
 }
 
 function checkRight( x, y, symbol ){
@@ -164,6 +165,8 @@ function checkRight( x, y, symbol ){
         squareContent = $('[row='+ x + '][col=' + y + ']').text();
         if(squareContent === symbol)
             count++;
+        else
+            break;
     }
     return count;
 }
@@ -172,18 +175,20 @@ function checkLeft( x, y, symbol ){
     var count = 0;
     var squareContent = $('[row='+ x + '][col=' + y + ']').text();
 
-    while(squareContent){ //while not empty, keep checking to the left
+    while(squareContent){ //while not empty, keep checking the one on the left if they match
         y--;
         squareContent = $('[row='+ x + '][col=' + y + ']').text();
         if(squareContent === symbol)
             count++;
+        else
+            break;
     }
     return count;
 }
 
 function checkCol( x, y, symbol ){
-    var matches = checkUp(x, y, symbol) + checkDown(x, y, symbol);
-    return matches;
+    var colCountSum = checkUp(x, y, symbol) + checkDown(x, y, symbol);
+    return colCountSum;
 }
 
 function checkUp( x, y, symbol ){
@@ -195,6 +200,8 @@ function checkUp( x, y, symbol ){
         squareContent = $('[row='+ x + '][col=' + y + ']').text();
         if(squareContent === symbol)
             count++;
+        else
+            break;
     }
     return count;
 }
@@ -208,6 +215,8 @@ function checkDown( x, y, symbol ){
         squareContent = $('[row='+ x + '][col=' + y + ']').text();
         if(squareContent === symbol)
             count++;
+        else
+            break;
     }
     return count;
 }
@@ -227,6 +236,8 @@ function checkDiag_NW( x, y, symbol ){
         squareContent = $('[row='+ x + '][col=' + y + ']').text();
         if(squareContent === symbol)
             count++;
+        else
+            break;
     }
     return count;
 }
@@ -241,6 +252,8 @@ function checkDiag_SE( x, y, symbol ){
         squareContent = $('[row='+ x + '][col=' + y + ']').text();
         if(squareContent === symbol)
             count++;
+        else
+            break;
     }
     return count;
 }
@@ -260,6 +273,8 @@ function checkDiag_NE( x, y, symbol ){
         squareContent = $('[row='+ x + '][col=' + y + ']').text();
         if(squareContent === symbol)
             count++;
+        else
+            break;
     }
     return count;
 }
@@ -272,9 +287,10 @@ function checkDiag_SW( x, y, symbol ){
         x++;
         y--;
         squareContent = $('[row='+ x + '][col=' + y + ']').text();
-
         if(squareContent === symbol)
             count++;
+        else
+            break;
     }
     return count;
 }
