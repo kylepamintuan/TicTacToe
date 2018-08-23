@@ -21,10 +21,14 @@ var playerTwo = {
 var currentPlayer = playerOne;
 var gameSize = 3;
 var moves = 0;
+var resetButton = $('<button>').text('RESET');
+
 
 function initializeApp(){
     console.log('Initializing App...');
     makeGameBoard(gameSize);
+    $('#reset').append(resetButton);
+    $('#reset').click(resetGame);
 }
 
 function bindEventHandlers(){
@@ -271,4 +275,10 @@ function checkDiag_SW( i, j, symbol ){
             count++;
     }
     return count;
+}
+
+function resetGame (){
+    $('.gameBoard').empty();
+    initializeApp();
+    moves = 0;
 }
