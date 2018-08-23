@@ -8,6 +8,7 @@ var playerOne = {
     catsGames: 0,
     color: 'red'
 };
+
 var playerTwo = {
     name: 'thing 2',
     symbol: 'O',
@@ -16,6 +17,7 @@ var playerTwo = {
     catsGames: 0,
     color: 'blue'
 };
+
 var currentPlayer = playerOne;
 var moves = 0;
 var gameSize = 3;
@@ -84,29 +86,28 @@ function changeCurrentPlayer(){
 }
 
 function gameOver( str ){
-    if( str === playerOne.name || str === playerTwo.name)
-    {
-        currentPlayer.wins++;
-        changeCurrentPlayer();
-        currentPlayer.losses++;
-    }
-    else if( str === 'cats' )
-    {
-        playerOne.catsGames++;
-        playerTwo.catsGames++;
+    if( str === playerOne.name){
+        $('.player1_container .wins').text(++playerOne.wins);
+        $('.player2_container .losses').text(++playerTwo.losses);
+    }else if (str === playerTwo.name){
+        $('.player2_container .wins').text(++playerTwo.wins);
+        $('.player1_container .losses').text(++playerOne.losses);
+    }else{
+        $('.player1_container .catsGames').text(++playerOne.catsGames);
+        $('.player2_container .catsGames').text(++playerTwo.catsGames);
     }
 
     //$('#gameOverModal').modal('show');
+    showModal('gameOver');
 }
 
-function showModal(){
-    $("#tttModal").modal('show');
+function showModal( type ){
+    var modalToShow = '#' + type + 'Modal';
+    $(modalToShow).modal('show');
 }
 
-function hideModal(){
-    $("#tttModal").modal('hide');
+function hideModal( type ){
+    var modalToHide = '#' + type + 'Modal';
+    $(modalToHide).modal('hide');
 }
 
-function checkPlayerWin () {
-
-}
