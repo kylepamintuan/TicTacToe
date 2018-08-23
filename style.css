@@ -115,6 +115,11 @@ body {
     line-height: 10px;
 }
 .name{
+    font-size: 3.5rem;
+    user-select: all;
+}
+.name:focus{
+    outline: none;
     font-size: 3vw;
 }
 .symbol {
