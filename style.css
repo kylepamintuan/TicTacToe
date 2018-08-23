@@ -3,7 +3,7 @@ body {
     width: 100vw;
     margin: 0;
     font-size: 0;
-    font-family: sans-serif;
+    font-family: 'Orbitron', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('1.jpg');
@@ -27,10 +27,6 @@ body {
 .player1_container .symbol {
     width: 100%;
     height: 30%;
-}
-.player1_container .stats {
-    width: 100%;
-    height: 55%;
 }
 .game_area {
     width: 60%;
@@ -96,9 +92,6 @@ body {
     width: 100%;
     height: 30%;
 }
-.player2_container .stats {
-    width: 100%;
-    height: 55%;
 }
 .player1_container, .player2_container{
     box-sizing: border-box;
@@ -110,8 +103,19 @@ body {
     border: 0.1px dotted #80acff;
     text-align: center;
 }
+.otherPlayer {
+    opacity: 0.4;
+}
 .currentPlayer {
-    box-shadow: 4px 4px 50px 2px hotpink inset;
-    padding: 5px;
-    text-shadow: 0 0 5px #FF0000, 0 0 20px #0000FF;
+    border:;
+}
+.stats {
+    line-height: 50px;
+    height: 30%;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(165, 232, 255, 0.1);
+}
+.name, .symbol {
+    text-align: center;
 }
