@@ -24,7 +24,6 @@ var moves = 0;
 var resetButton = $('<button>').text('RESET');
 var winner;
 
-
 function initializeApp(){
     console.log('Initializing App...');
     makeGameBoard(gameSize);
