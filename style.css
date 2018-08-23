@@ -4,68 +4,96 @@ body {
     margin: 0;
     font-size: 0;
     font-family: sans-serif;
+    background-repeat: repeat;
+    background-size: 100%;
+    background-image: url('1.jpg');
 }
 .player1_container {
-    width: 14%;
+    width: 15%;
     height: 100%;
     font-size: 20px;
-    background-color: #4d79ff;
     display: inline-block;
+    color: white;
+    font-weight: bold;
 }
-.player1_display {
+.player1_container .name {
     width: 100%;
-    height: 70%;
-    background-color: #66cc00;
+    height: 15%;
 }
-.player1_stats {
+.player1_container .symbol {
     width: 100%;
     height: 30%;
-    background-color: #00b3b3;
+}
+.player1_container .stats {
+    width: 100%;
+    height: 55%;
 }
 .game_area {
     width: 70%;
     height: 100%;
     margin: auto;
-    font-size: 30px;
-    background-color: pink;
     display: inline-block;
     vertical-align: top;
+    color: white;
+
 }
-.gameName {
+.gameTop {
     width: 100%;
     height: 10%;
-    font-size: 40px;
+    font-size: 4rem;
     text-align: center;
-    background-color: mediumpurple;
+    text-shadow: 0 0 5px #00e6e6, 0 0 20px #ff00ff;
 }
-.gameBoard {
+.gameBottom {
     width: 100%;
     height: 90%;
-    background-color: lightcoral;
+    font-size: 10rem;
+    font-weight: bolder;
+    text-shadow: 0 0 25px #ff00ff, 0 0 40px #00e6e6;
+}
+.gameBoard {
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    right: 50%;
+    padding: 7%;
+    margin: auto;
 }
 .player2_container {
-    width: 14%;
+    width: 15%;
     height: 100%;
     font-size: 20px;
-    background-color: #4d79ff;
     display: inline-block;
+    color: white;
+    font-weight: bold;
 }
-.player2_display {
+.player2_container .name {
     width: 100%;
-    height: 70%;
-    background-color: #66cc00;
+    height: 15%;
 }
-.player2_stats {
+.player2_container .symbol {
     width: 100%;
     height: 30%;
-    background-color: #00b3b3;
+}
+.player2_container .stats {
+    width: 100%;
+    height: 55%;
 }
 .square {
-    background-color: cyan;
+    background-color: #001233;
     float: left;
-    border: 1px solid black;
+    border: 0.1px dotted #80acff;
+    text-align: center;
+    vertical-align: center;
+    top: 50%;
+    left: 50%;
 }
+.square .clicked{
 
-.clicked{
-    /*opacity: 0.5;*/
+}
+.currentPlayer {
+    text-shadow: 0 0 5px #FF0000, 0 0 20px #0000FF;
+}
+.nextPlayer {
+    text-shadow: 0 0 3px #0000FF, 0 0 5px #FF0000;
 }
