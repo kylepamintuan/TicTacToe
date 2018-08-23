@@ -11,11 +11,10 @@
   	src="https://code.jquery.com/jquery-3.3.1.js"
   	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   	crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
   </head>
   <body>
-    <div class="player1_container">
+    <div class="player1_container currentPlayer">
       <div class="name">Player1 name</div>
       <div class="symbol">Player1 symbol</div>
       <div class="stats">
@@ -40,24 +39,5 @@
       </div>
     </div>
     <span id="reset"></span>
-    
-    <!-- html for modal -->  
-    <div class="modal fade" id="gameOverModal" role="dialog">
-      <div class="modal-dialog">
-      <!-- modal content goes here -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Game Over</h4>
-          </div>
-          <div class="modal-body">
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Reset Game</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>

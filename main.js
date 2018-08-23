@@ -80,13 +80,13 @@ function squareClickEventHandler(){
 function changeCurrentPlayer(){
     if(currentPlayer === playerOne){
         currentPlayer = playerTwo;
-        $('player1_container').toggleClass('nextPlayer');
-        $('player2_container').toggleClass('currentPlayer');
+        $('.player1_container').removeClass('currentPlayer');
+        $('.player2_container').addClass('currentPlayer');
 
     }else{
         currentPlayer = playerOne;
-        $('player2_container').toggleClass('nextPlayer');
-        $('player1_container').toggleClass('currentPlayer');
+        $('.player2_container').removeClass('currentPlayer');
+        $('.player1_container').addClass('currentPlayer');
     }
 }
 
@@ -101,19 +101,6 @@ function gameOver( str ){
         $('.player1_container .catsGames').text(++playerOne.catsGames);
         $('.player2_container .catsGames').text(++playerTwo.catsGames);
     }
-
-    //$('#gameOverModal').modal('show');
-    showModal('gameOver');
-}
-
-function showModal( type ){
-    var modalToShow = '#' + type + 'Modal';
-    $(modalToShow).modal('show');
-}
-
-function hideModal( type ){
-    var modalToHide = '#' + type + 'Modal';
-    $(modalToHide).modal('hide');
 }
 
 function checkGameWin( square ){
