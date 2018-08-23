@@ -7,7 +7,7 @@ var playerOne = {
     losses: 0,
     catsGames: 0,
     color: 'red'
-}
+};
 var playerTwo = {
     name: 'thing 2',
     symbol: 'O',
@@ -15,7 +15,7 @@ var playerTwo = {
     losses: 0,
     catsGames: 0,
     color: 'blue'
-}
+};
 var currentPlayer = playerOne;
 var moves = 0;
 var gameSize = 3;
@@ -73,8 +73,13 @@ function squareClickEventHandler(){
 function changeCurrentPlayer(){
     if(currentPlayer === playerOne){
         currentPlayer = playerTwo;
+        $('player1_container').toggleClass('nextPlayer');
+        $('player2_container').toggleClass('currentPlayer');
+
     }else{
-        currentPlayer = playerOne;   
+        currentPlayer = playerOne;
+        $('player2_container').toggleClass('nextPlayer');
+        $('player1_container').toggleClass('currentPlayer');
     }
 }
 
@@ -104,4 +109,4 @@ function hideModal(){
 
 function checkPlayerWin () {
 
-}}
+}
