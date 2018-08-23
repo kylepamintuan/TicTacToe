@@ -29,6 +29,9 @@ function initializeApp(){
     makeGameBoard(gameSize);
     $('#reset').append(resetButton);
     $('#reset').click(resetGame);
+    $(window).resize(function(){
+        setTextCentering();
+    });
 }
 
 function makeGameBoard( size ){
@@ -49,6 +52,7 @@ function makeGameBoard( size ){
             $('.gameBoard').append( square );
         }
     }
+    setTextCentering();
 }
 
 function squareClickEventHandler(){
@@ -257,4 +261,10 @@ function resetGame (){
     $('.gameBoard').empty();
     initializeApp();
     moves = 0;
+}
+
+function setTextCentering(){
+    $(".square").each(function(){
+        $(this).css('line-height', $(this).height()+'px');
+    })
 }
