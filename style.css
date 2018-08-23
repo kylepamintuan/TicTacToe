@@ -6,7 +6,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('1.jpg');
+    background-image: url('stars_background.jpg');
     user-select: none;
 }
 .player1_container {
@@ -98,7 +98,7 @@ body {
     vertical-align: top;
 }
 .square {
-    background-color: #00123377;
+    background-color: #00000077;
     float: left;
     border: 0.1px dotted #80acff;
     text-align: center;
@@ -111,13 +111,20 @@ body {
 }
 .stats {
     line-height: 50px;
-    height: 30%;
+    height: 19%;
     width: 100%;
     padding: 10px;
     background-color: rgba(165, 232, 255, 0.1);
 }
 .name, .symbol {
     text-align: center;
+    line-height: 10px;
+}
+.name{
+    font-size: 3.5rem;
+}
+.symbol {
+    font-size: 11rem;
 }
 .winner {
     font-size: 12rem;
@@ -136,4 +143,7 @@ body {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+.wins, .losses {
+    float: right;
 }
