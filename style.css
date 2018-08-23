@@ -109,6 +109,3 @@ body {
 .nextPlayer {
     text-shadow: 0 0 3px #0000FF, 0 0 5px #FF0000;
 }
-.winner {
-    color: red;
-}
