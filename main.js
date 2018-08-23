@@ -78,7 +78,6 @@ function squareClickEventHandler(){
 }
 
 function changeCurrentPlayer(){
-    console.log('changing player')
     if(currentPlayer === playerOne){
         currentPlayer = playerTwo;
         $('player1_container').toggleClass('nextPlayer');
