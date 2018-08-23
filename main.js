@@ -266,5 +266,5 @@ function resetGame (){
 function setTextCentering(){
     $(".square").each(function(){
         $(this).css('line-height', $(this).height()+'px');
-    })
+    });
 }
