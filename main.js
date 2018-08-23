@@ -308,8 +308,9 @@ function resetGame (){
     $('square').on('click', squareClickEventHandler);
     isGameOver = false;
 }
+
 function setTextCentering(){
     $(".square").each(function(){
         $(this).css('line-height', $(this).height()+'px');
-    })
+    });
 }

@@ -106,9 +106,6 @@ body {
 .otherPlayer {
     opacity: 0.4;
 }
-.currentPlayer {
-    border:;
-}
 .stats {
     line-height: 50px;
     height: 19%;
