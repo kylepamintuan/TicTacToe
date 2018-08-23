@@ -7,6 +7,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('1.jpg');
+    user-select: none;
 }
 .player1_container {
     width: 20%;
@@ -50,26 +51,31 @@ body {
 .gameBottom {
     width: 100%;
     height: 90%;
-    font-size: 10rem;
     font-weight: bolder;
     text-shadow: 0 0 25px #ff00ff, 0 0 40px #00e6e6;
 }
 .gameBoard {
     width: 100%;
-    height: 80%;
+    height: 100%;
+    font-size: 10rem;
     top: 50%;
     right: 50%;
     padding: 7%;
-    margin: auto;
     cursor: pointer;
 }
-#reset {
-    width: 100%;
-    height: 5%;
-    vertical-align: center;
+#reset button{
+    position: absolute;
+    bottom: 2.5%;
+    right: 2.5%;
     text-align: center;
-    font-size: 15px;
-    color: black;
+    font-size: 2.5rem;
+    color: white;
+    background: none;
+    border-radius: 50%;
+    border: 5px solid white;
+    padding: 1rem;
+    text-shadow: 0 0 2px #33ccff , 0 0 10px blue;
+    box-shadow: 0 0 2px #33ccff , 0 0 10px blue;
 }
 .player2_container {
     width: 20%;
@@ -94,18 +100,18 @@ body {
     width: 100%;
     height: 55%;
 }
+.player1_container, .player2_container{
+    box-sizing: border-box;
+    vertical-align: top;
+}
 .square {
     background-color: #00123377;
     float: left;
     border: 0.1px dotted #80acff;
     text-align: center;
-    vertical-align: center;
-    /*top: 50%;*/
-    /*left: 50%;*/
 }
 .currentPlayer {
+    box-shadow: 4px 4px 50px 2px hotpink inset;
+    padding: 5px;
     text-shadow: 0 0 5px #FF0000, 0 0 20px #0000FF;
-}
-.nextPlayer {
-    text-shadow: 0 0 3px #0000FF, 0 0 5px #FF0000;
 }

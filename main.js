@@ -31,10 +31,6 @@ function initializeApp(){
     $('#reset').click(resetGame);
 }
 
-function bindEventHandlers(){
-
-}
-
 function makeGameBoard( size ){
     var squareSize = Math.floor(100 / size);
     for (var rowIndex=0; rowIndex < size; rowIndex++){
@@ -55,13 +51,6 @@ function makeGameBoard( size ){
     }
 }
 
-function checkSquareForMove( square ){
-    if (square.text() !== ''){
-        return true;
-    }
-    return false;
-}
-
 function squareClickEventHandler(){
     var current_square = $(event.currentTarget);
 
@@ -80,13 +69,13 @@ function squareClickEventHandler(){
 function changeCurrentPlayer(){
     if(currentPlayer === playerOne){
         currentPlayer = playerTwo;
-        $('.player1_container').toggleClass('nextPlayer');
-        $('.player2_container').toggleClass('currentPlayer');
+        $('.player1_container').removeClass('currentPlayer');
+        $('.player2_container').addClass('currentPlayer');
 
     }else{
         currentPlayer = playerOne;
-        $('.player2_container').toggleClass('nextPlayer');
-        $('.player1_container').toggleClass('currentPlayer');
+        $('.player2_container').removeClass('currentPlayer');
+        $('.player1_container').addClass('currentPlayer');
     }
 }
 
