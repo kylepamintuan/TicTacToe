@@ -27,10 +27,10 @@ body {
     width: 100%;
     height: 30%;
 }
-.player1_container .stats {
+/*.player1_container .stats {
     width: 100%;
     height: 55%;
-}
+}*/
 .game_area {
     width: 60%;
     height: 100%;
@@ -90,10 +90,10 @@ body {
     width: 100%;
     height: 30%;
 }
-.player2_container .stats {
+/*.player2_container .stats {
     width: 100%;
     height: 55%;
-}
+}*/
 .square {
     background-color: #00123377;
     float: left;
@@ -108,4 +108,25 @@ body {
 }
 .nextPlayer {
     text-shadow: 0 0 3px #0000FF, 0 0 5px #FF0000;
+}
+
+.stats {
+    height: 30%;
+    width: 90%;
+    padding: 10px;
+
+    border: 1px solid #33ccff; /* some kind of blue border */
+
+    /* other CSS styles */
+
+    /* round the corners */
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+
+
+    /* make it glow! */
+    -webkit-box-shadow: 0px 0px 4px #4195fc;
+       -moz-box-shadow: 0px 0px 4px #4195fc;
+            box-shadow: 0px 0px 4px #4195fc; /* some variation of blue for the shadow */
 }
