@@ -18,29 +18,51 @@ var playerTwo = {
     audioSrc: 'playerTwoSound.wav'
 };
 
-var currentPlayer = playerOne;
+var currentPlayer;
 var gameSize = 3;
 var moves = 0;
 var resetButton = $('<button>').text('RESET');
 var winner = null;
 var isGameOver = false;
 var audio;
+var loser;
 
 function initializeApp(){
     console.log('Initializing App...');
     makeGameBoard(gameSize);
     $('#reset').append(resetButton);
     $('#reset').click(resetGame);
+    $('.nameForm').hide();
+    $('.player1_container > .name').attr('contentEditable',true).click(nameClickEventHandler);
+    $('.name').blur(function(){
+        if(event.currentTarget.innerHTML === ''){
+            event.currentTarget.innerHTML = $(event.currentTarget).attr('oldName');
+        }
+    });
+    $('.player2_container > .name').attr('contentEditable',true).click(nameClickEventHandler);
     $(window).resize(function(){
         setTextCentering();
     });
+    setFirstPlayerTurn();
+}
 
-    // Make sure both classes are clear of otherPlayer class
-    $('.player1_container').removeClass('otherPlayer');
-    $('.player2_container').removeClass('otherPlayer');
+function nameClickEventHandler(){
+    $(event.currentTarget).attr('oldName', $(event.currentTarget).text());
+    $(event.currentTarget).text('');
+}
 
-    // Player 1 starts
-    $('.player2_container').addClass('otherPlayer');
+function setFirstPlayerTurn()
+{
+    if(!loser){
+        currentPlayer = playerOne;
+        $('.player2_container').addClass('otherPlayer');
+    } 
+    else if(loser === playerOne && currentPlayer !== playerOne){
+        changeCurrentPlayer();
+    }
+    else if(loser === playerTwo && changeCurrentPlayer !== playerTwo){
+        changeCurrentPlayer();
+    }
 }
 
 function makeGameBoard( size ){
@@ -73,7 +95,6 @@ function squareClickEventHandler(){
     moves++;
     if(moves >= gameSize*2-1){
         checkGameWin(current_square);
-
         if(isGameOver)
             return;
     }
@@ -101,10 +122,14 @@ function gameOver( str ){
     if( str === playerOne.name){
         $('.player1_container .wins').text(++playerOne.wins);
         $('.player2_container .losses').text(++playerTwo.losses);
+
+        loser = playerTwo;
     }
     else if (str === playerTwo.name){
         $('.player2_container .wins').text(++playerTwo.wins);
         $('.player1_container .losses').text(++playerOne.losses);
+
+        loser = playerOne;
     }
 }
 
@@ -158,6 +183,8 @@ function checkGameWin( lastSquareClicked ){
         playAudio('winnerSound.wav');
     }
 }
+
+// -------------------------------------------------------------------------------------------------------------------
 
 function checkRow( x, y, symbol ){
     var rowCountSum = checkRight(x, y, symbol) + checkLeft(x, y, symbol);
