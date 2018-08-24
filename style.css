@@ -56,7 +56,6 @@ body {
     top: 50%;
     right: 50%;
     padding: 7%;
-    cursor: pointer;
 }
 #reset button{
     position: absolute;
@@ -67,7 +66,7 @@ body {
     color: white;
     background: none;
     border-radius: 50%;
-    border: 5px solid white;
+    border: 3px solid white;
     padding: 1rem;
     text-shadow: 0 0 2px #33ccff , 0 0 10px blue;
     box-shadow: 0 0 2px #33ccff , 0 0 10px blue;
@@ -100,6 +99,7 @@ body {
     float: left;
     border: 0.1px dotted #80acff;
     text-align: center;
+    cursor: pointer;
 }
 .otherPlayer {
     opacity: 0.4;
@@ -145,4 +145,13 @@ body {
 }
 .wins, .losses {
     float: right;
+}
+#music {
+    width: 20%;
+    position: absolute;
+    bottom: 2.5%;
+    left: 2.5%;
+    color: white;
+    background: none;
+    padding: 1rem;
 }

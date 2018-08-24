@@ -5,7 +5,8 @@ var playerOne = {
     symbol: 'X',
     wins: 0,
     losses: 0,
-    color: 'red'
+    color: 'red',
+    audioSrc: 'playerOneSound.wav'
 };
 
 var playerTwo = {
@@ -13,15 +14,17 @@ var playerTwo = {
     symbol: 'O',
     wins: 0,
     losses: 0,
-    color: 'blue'
+    color: 'blue',
+    audioSrc: 'playerTwoSound.wav'
 };
 
 var currentPlayer;
 var gameSize = 3;
 var moves = 0;
 var resetButton = $('<button>').text('RESET');
-var winner;
+var winner = null;
 var isGameOver = false;
+var audio;
 var loser;
 
 function initializeApp(){
@@ -86,8 +89,7 @@ function makeGameBoard( size ){
 function squareClickEventHandler(){
     var current_square = $(event.currentTarget);
 
-    //console.log('square clicked: [' + current_square.attr('row') + '][' + current_square.attr('col') + ']');
-
+    playAudio(currentPlayer.audioSrc);
     current_square.toggleClass('clicked');
     current_square.text(currentPlayer.symbol);
     moves++;
@@ -143,8 +145,7 @@ function checkGameWin( lastSquareClicked ){
     var diag1_matches = checkDiag1(row,col,symbol);
     var diag2_matches = checkDiag2(row,col,symbol);
 
-    if(row_matches === winning_matches)
-    {
+    if(row_matches === winning_matches){
         rowNum = parseInt(row);
         $('[row='+ rowNum + ']').addClass('winner');
         winner = currentPlayer.name;
@@ -152,8 +153,7 @@ function checkGameWin( lastSquareClicked ){
 
         gameOver(winner);
     } 
-    else if(col_matches === winning_matches)
-    {
+    else if(col_matches === winning_matches){
         colNum = parseInt(col);
         $('[col='+ colNum + ']').addClass('winner');
         winner = currentPlayer.name;
@@ -161,8 +161,7 @@ function checkGameWin( lastSquareClicked ){
 
         gameOver(winner);
     } 
-    else if(diag1_matches === winning_matches)
-    {
+    else if(diag1_matches === winning_matches){
         for (var rowColIndex=0; rowColIndex<gameSize; rowColIndex++){
             $('[row='+ rowColIndex + '][col=' + rowColIndex + ']').addClass('winner');
         }
@@ -171,8 +170,7 @@ function checkGameWin( lastSquareClicked ){
 
         gameOver(winner);        
     } 
-    else if(diag2_matches === winning_matches)
-    {
+    else if(diag2_matches === winning_matches){
         for (var colIndex=0, rowIndex = gameSize - 1; colIndex<gameSize, rowIndex >= 0; colIndex++, rowIndex--){
             $('[row=' + rowIndex + '][col=' + colIndex + ']').addClass('winner');
         }
@@ -180,6 +178,9 @@ function checkGameWin( lastSquareClicked ){
         $('.square').off('click');
 
         gameOver(winner);
+    }
+    if(winner){
+        playAudio('winnerSound.wav');
     }
 }
 
@@ -334,10 +335,14 @@ function resetGame (){
     moves = 0;
     $('square').on('click', squareClickEventHandler);
     isGameOver = false;
+    audio.pause();
 }
-
 function setTextCentering(){
     $(".square").each(function(){
         $(this).css('line-height', $(this).height()+'px');
     });
+}
+function playAudio ( sound ) {
+    audio = new Audio(sound);
+    audio.play();
 }
