@@ -28,7 +28,6 @@ var audio;
 var loser;
 
 function initializeApp(){
-    console.log('Initializing App...');
     makeGameBoard(gameSize);
     $('#reset').append(resetButton);
     $('#reset').click(resetGame);
@@ -128,7 +127,6 @@ function changeCurrentPlayer(){
 }
 
 function gameOver( str ){
-    console.log(str);
     isGameOver = true;
 
     if( str === playerOne.name){
@@ -195,8 +193,6 @@ function checkGameWin( lastSquareClicked ){
         playAudio('winnerSound.wav');
     }
 }
-
-// -------------------------------------------------------------------------------------------------------------------
 
 function checkRow( x, y, symbol ){
     var rowCountSum = checkRight(x, y, symbol) + checkLeft(x, y, symbol);
