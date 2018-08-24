@@ -115,7 +115,7 @@ body {
     line-height: 10px;
 }
 .name{
-    font-size: 3.5rem;
+    font-size: 3vw;
     user-select: all;
 }
 .name:focus{
