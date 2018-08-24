@@ -40,12 +40,24 @@ function initializeApp(){
     $(window).resize(function(){
         setTextCentering();
     });
+    $('.gameSize').click(gameSizeClickEventHandler);
     setFirstPlayerTurn();
 }
 
 function nameClickEventHandler(){
     $(event.currentTarget).attr('oldName', $(event.currentTarget).text());
     $(event.currentTarget).text('');
+}
+
+function gameSizeClickEventHandler(){
+    if($(event.currentTarget).attr('id') === 'size_3'){
+        gameSize = 3;
+        resetGame();
+    }
+    else if($(event.currentTarget).attr('id') === 'size_5'){
+       gameSize = 5;
+       resetGame();
+   }
 }
 
 function setFirstPlayerTurn()
