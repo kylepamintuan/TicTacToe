@@ -52,7 +52,7 @@ body {
 .gameBoard {
     width: 100%;
     height: 100%;
-    font-size: 10vw;
+    font-size: 8vw;
     top: 50%;
     right: 50%;
     padding: 7%;
@@ -146,12 +146,16 @@ body {
 .wins, .losses {
     float: right;
 }
-#music {
-    width: 20%;
+.gameSize {
+    font-size: 3vw;
+    text-shadow: 0 0 5px #00e6e6, 0 0 20px #ff00ff;
     position: absolute;
-    bottom: 2.5%;
-    left: 2.5%;
-    color: white;
-    background: none;
-    padding: 1rem;
+}
+#size_3 {
+    bottom: 2%;
+    left: 4%;
+}
+#size_5 {
+    bottom: 2%;
+    left: 14%;
 }
