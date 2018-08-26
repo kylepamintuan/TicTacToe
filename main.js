@@ -53,10 +53,12 @@ function nameClickEventHandler(){
 
 function gameSizeClickEventHandler(){
     if($(event.currentTarget).attr('id') === 'size_3'){
+        winner = null;
         gameSize = 3;
         resetGame();
     }
     else if($(event.currentTarget).attr('id') === 'size_5'){
+       winner = null;
        gameSize = 5;
        resetGame();
    }
@@ -343,6 +345,7 @@ function resetGame (){
     moves = 0;
     $('square').on('click', squareClickEventHandler);
     isGameOver = false;
+    winner = null;
     audio.pause();
 }
 function setTextCentering(){
